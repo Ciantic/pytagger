@@ -1,0 +1,92 @@
+PyID3v2 - Python ID3 Module
+---------------------------
+
+PyID3v2 is a ID3[1] tag reader and writer implemented purely in
+Python. It supports all the current ID3 tag implementations including
+ID3v1, ID3v1.1, ID3v2.2, ID3v2.3 and ID3v2.4.
+
+The motivation to write this was based on the fact that every
+encoder/player used different sets of tags and encoded them
+differently. Normally this isn't a problem except when it comes to
+non-English character sets, like Chinese, there is a lot of confusion
+out there. So in a bid to translate all my Big-5 encoded tags to
+UTF-16 (for iTunes) or UTF-8 (for Rhythmbox), I wrote this module.
+
+Note: I am aware there are several different Python ID3 modules. This
+is the only one I'm aware of that supported ID3v2 without relying on
+an external library. Others that support ID3v2 don't support
+editing. I've had to rename my project specifically to not cause
+confusion with existing pyid3 projects.
+
+Author
+-----
+Alastair Tse <acnt2@cam.ac.uk>/<liquidx@gentoo.org>
+
+Status
+------
+
+The module is currently had the follow features:
+
+- Reads ID3v1 and ID3v1.1 using the pyid3.ID3v1 class
+- Reads ID3v2.2 to ID3v2.4 using the pyid3.ID3v2 class
+ * Decodes all text, url, comments, attachments frames
+- Write to ID3v2.2 to ID3v2.4 frames
+- Able to add ID3 tags from scratch to existing MP3s
+- Only works on MP3s
+
+Examples
+--------
+
+Included are a couple of example scripts that I wrote to convert my
+MP3 collection.
+
+mp3check.py - Checks MP3s for ID3v2 and ID3v1 tags
+mp3conv.py  - Converts MP3 tags from one encoding to another,
+			  also attempts to fill in missing ID3v2 tags with
+			  information from ID3v1 tags, if they exists
+mp3stat.py  - Polls recursively a directory and outputs a list of
+			  statistics about the files, including what version of
+			  ID3v2 tags are in use and what frame types are present
+
+Quirks
+------
+  iTunes
+  ------
+  * iTunes uses SyncSafe encoding for the length/size field in the ID3v2
+    Header, but doesn't use it for the ID3v2 Frame Headers.
+
+  libid3tag
+  ---------
+  * There seems to be a bug with libid3tag not setting the Restrictions
+    bit in the ID3v2.4 Extensions Header, but attaching an extra byte
+	for the field.
+
+  * Even when setting Unicode encoding, libid3tag does not set the
+    encoding value for each text field to anything non-zero.
+
+
+Todo List
+---------
+
+If you are interested in helping out, please check out this list and
+send me patches :)
+
+ * Documentation !!
+ * Split classes into their own files.
+ * FIX FIXMEs, especially regarding missing frame encoders/decoders
+ * Properly use flags in ID3v2
+ * Implement write feature for ID3v1
+ * Strict checking for fields in ID3v2
+ * Able to cross convert ID3 tags between 2.2, 2.3 and 2.4
+ * Able to synchronise with ID3v1 tags (can be done externally)
+
+References
+----------
+[1] http://www.id3.org/id3v2.4.0-structure.txt
+
+
+License
+-------
+This module is licensed under the BSD license. I would appreciate it
+if you give me a quick email if you find it useful :) More details in
+the COPYING file included with this distribution.
