@@ -1,3 +1,15 @@
+*pytagger v0.2 (26 Apr 2004)
+
+	02 May 2004; Alastair Tse <acnt2@cam.ac.uk>:
+	Renamed to pytagger to avoid confusion with pyid3
+	
+	26 Apr 2004; Alastair Tse <acnt2@cam.ac.uk>:
+	Refactoring code. 
+	- Add copious documentation, example
+	- Split into managable chunks
+	- Add Unit Tests
+	- Make pychecker/pylint a requirement
+
 *PyID3v2 v0.1.1 (03 Feb 2004)
 	 
 	 03 Feb 2004; Alastair Tse <acnt2@cam.ac.uk>:

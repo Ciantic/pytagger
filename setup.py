@@ -5,14 +5,16 @@ assert sys.version >= '2.3', "Requires Python v2.3 or above"
 from distutils.core import setup, Extension
 
 setup(
-    name = "pyid3v2",
-    version = "0.1.1",
+    name = "pytagger",
+    version = "0.2",
     author = "Alastair Tse",
     author_email = "acnt2@cam.ac.uk",
-    url = "http://www-lce.eng.cam.ac.uk/~acnt2/code/pyid3v2/",
+    url = "http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/",
 	description = "Python ID3 Tag Reader and Writer Module",
 	long_description = "An ID3v1 and ID3v2 tag reader and writer module in pure Python. Supports all standards including ID3v1, ID3v1.1, ID3v2.2, ID3v2.3 and ID3v2.4",
 	license = "BSD",
-	py_modules = ["pyid3v2"],
-    scripts = ["mp3conv.py", "mp3stats.py", "mp3check.py"]
+	py_modules = ["tagger", "tagger.id3v1", "tagger.id3v2", "tagger.exceptions",
+				  "tagger.constants", "tagger.utility", "tagger.id3v2frame",
+				  "tagger.encoding", "tagger.debug"],
+    scripts = ["mp3check.py"]
 )

@@ -1,36 +1,53 @@
-#!/usr/bin/python2.3
+#!/usr/bin/env python
 
-from pyid3v2 import *
+from tagger import *
 
-import sys, string
+import sys, os, fnmatch, pickle
 
-def strip_newline(data):
-	# find new line and strip everything before it
-	for i in range(0,len(data)):
-		if data[i] == '\n':
-			return data[i+1:]
+#headers_id3v2 = []
+has_footer = 0
 
-	# oops, didn't find anything offending
-	return data
-	
-
-for filename in sys.argv[1:]:
-	print "Checking %s" % filename
+def do_id3(filename, verbose=1):
 	try:
-		id3 = ID3v2(filename, ID3V2_FILE_READ)
+		id3 = ID3v2(filename)
+		#headers_id3v2.append((filename, id3.dump_header()))
+		print "ID3v2: %s: ver: %f frames: %d length: %d" % \
+			  (os.path.basename(filename),
+			   id3.version, len(id3.frames), id3.tag["size"])
+		if verbose:
+			for frame in id3.frames:
+				try:
+					print frame.fid, ":", frame.encoding, ":"
+				except:
+					print frame.fid, ":"
 
-		for f in id3.frames:
-			if f.fid[0] == 'T':
-				print f.fid, f.fields
-	except ID3Exception:
-		print "Unable to find ID3v2 Tag"
-		
-		
-	# check id3v1 tag
+		if id3.tag.has_key("footer") and id3.tag["footer"]: has_footer+=1
+		id3.commit(pretend=1)
+	except ID3Exception, e:
+		print "Error: ID3v2: %s: %s" % (os.path.basename(filename), e)
+
 	try:
-		id3v1 = ID3v1(filename)
-		id3v1.parse()
-		print id3v1.tag
-	except AttributeError:
-		print "Error parsing ID3v1 tag"
+		id3 = ID3v1(filename)
+	except ID3Exception, e:
+		print "Error: ID3v1: %s: %s" % (os.path.basename(filename), e)
 
+
+def do_recurse(filename):
+	if os.path.isdir(filename):
+		#print "traversing dir:", filename
+		for f in fnmatch.filter(os.listdir(filename), '*.mp3'):
+			do_recurse(os.path.join(filename, f))
+		for f in os.listdir(filename):
+			if os.path.isdir(os.path.join(filename, f)):
+				do_recurse(os.path.join(filename, f))
+	else:
+		#print "checking file:", filename
+		do_id3(filename)
+
+try:
+	do_recurse(sys.argv[1])
+finally:
+	pass
+	#pickle.dump(headers_id3v2, open("headers_id3v2.pkl", "w"))
+
+print has_footer
