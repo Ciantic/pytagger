@@ -253,10 +253,14 @@ class ID3v2Frame:
 				raise ID3Exception("Unsupported ID3v2 Field: %s" % fid)
 			else:
 				self.fid = fid
+				self.new_frame_header()
 				
 		elif frame:
 			self.parse_frame_header(frame)
 			self.parse_field()
+
+	def new_frame_header(self):
+		self.meta = {'status':0, 'format':0, 'length':0, 'tagpreserve':0, 'filepreserve':0, 'readonly':0, 'groupinfo':0, 'compression':0, 'encryption':0, 'sync':0, 'datalength':0, 'data':0}
 
 	def parse_frame_header(self, frame):
 		# apple's id3 tags doesn't seem to follow the unsync safe format?
@@ -291,14 +295,14 @@ class ID3v2Frame:
 
 	def parse_field(self):
 		if self.fid not in self.supported.keys():
-			print [self.fid]
+			_warn("Unrecognised Frame: %s" % str([self.fid]))			
 			raise ID3Exception("Unsupported ID3v2 Field: %s" % self.fid)
 		parser = self.supported[self.fid][0]
 		self.fields = eval('self.x_' + parser + '()')
 
 	def output_field(self):
 		if self.fid not in self.supported.keys():
-			print [self.fid]
+			_warn("Unrecognised Frame: %s" % str([self.fid]))
 			raise ID3Exception("Unsupported ID3v2 Field: %s" % self.fid)
 		parser = self.supported[self.fid][0]
 		return eval('self.o_' + parser + '()')
@@ -330,7 +334,7 @@ class ID3v2Frame:
 
 	def o_text(self):
 		targetenc = self.fields[0]
-		print self.fid, self.fields		
+		_debug("%s %s" % (self.fid, str(self.fields)))
 		strings = self.fields[2]
 		newstrings = []
 		for s in strings:
@@ -667,9 +671,16 @@ class ID3v2_2Frame(ID3v2Frame):
 		self.meta["length"] = size
 		self.meta["data"] = frame[self.header_length:]
 
+	def output(self):
+		fieldstr = self.output_field()
+		# FIXME: no syncsafe
+		# NOTE: ID3v2 uses only 3 bytes for size, so we strip of MSB
+		header = self.fid + struct.pack('!I', len(fieldstr))[1:]
+		return header + fieldstr
+
 	def parse_field(self):
 		if self.fid not in self.supported.keys():
-			print [self.fid]
+			_error("Unrecognised Frame: %s" % str([self.fid]))
 			raise ID3Exception("Unsupported ID3v2 Field: %s" % self.fid)
 		parser = self.supported[self.fid][0]
 		self.fields = eval('self.x_' + parser + '()')
@@ -678,6 +689,14 @@ class ID3v2_2Frame(ID3v2Frame):
 		(encoding, text, strings) = ID3v2Frame.x_text(self)
 		return (encoding, strings[0])
 		
+	def o_text(self):
+		targetenc = self.fields[0]
+		_debug("%s %s" % (self.fid, self.fields))
+		newstring = self.o_string(self.fields[1], targetenc)
+		if self.encodings[targetenc] in ['utf-16', 'utf-16be']:
+			return chr(targetenc) + newstring + '\x00\x00'
+		else:
+			return chr(targetenc) + newstring + '\x00'
 	
 class ID3v2:
 	"""ID3v2 Tag Parser for MP3 files"""
@@ -831,13 +850,16 @@ class ID3v2:
 		while read < self.tag["size"]:
 			framedata = self.get_next_frame(self.tag["size"] - read)
 			if framedata:
-				read += len(framedata)
-				if self.tag["version"] == 0x200:
-					frame = ID3v2_2Frame(frame=framedata)
-				else:
-					frame = ID3v2Frame(frame=framedata)
-				readframes += 1
-				self.frames.append(frame)
+				try:
+					read += len(framedata)
+					if self.tag["version"] == 0x200:
+						frame = ID3v2_2Frame(frame=framedata)
+					else:
+						frame = ID3v2Frame(frame=framedata)
+					readframes += 1
+					self.frames.append(frame)
+				except ID3Exception:
+					pass # ignore unrecognised frames
 			else:
 				self.tag["padding"] = self.read_null_bytes()
 				_debug("NULL Padding: %d" % self.tag["padding"])
@@ -880,7 +902,7 @@ class ID3v2:
 			bytestring = 'ID3'
 			flags = (self.tag["unsync"] << 7) | (self.tag["compression"] << 6)
 			bytestring += struct.pack('!HB', self.tag["version"], flags)
-			bytestring += syncsafe(size, 4)			
+			bytestring += syncsafe(size, 4)
 		return bytestring
 
 	def construct_ext_header(self):
@@ -910,7 +932,7 @@ class ID3v2:
 												 ID3V2_FILE_DEFAULT_PADDING)
 			
 			# need to realign - find start of MP3
-			if self.tag["footer"]:
+			if self.tag["version"] > 0x0200 and self.tag["footer"]:
 				self.f.seek(20 + self.tag["size"])
 			else:
 				self.f.seek(10 + self.tag["size"])
@@ -950,7 +972,7 @@ class ID3v2:
 				self.f.write(extstring)
 				self.f.write(framesstring)
 				written = len(extstring) + len(framesstring)
-				print "Written Bytes:", written
+				_warn("Written Bytes: %d" % written)
 				self.f.write('\x00' * (self.tag["size"] - written))
 				self.f.write(footerstring)
 

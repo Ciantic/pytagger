@@ -1,8 +1,8 @@
-#!/usr/bin/python2.3
+#!C:\Python23\python.exe
 
 from pyid3v2 import *
 
-import sys, string, os, pickle
+import sys, string, os, pickle, fnmatch
 
 def strip_newline(data):
 	# find new line and strip everything before it
@@ -39,7 +39,7 @@ def do_id3(filename):
 def do_recurse(filename):
 	if os.path.isdir(filename):
 		print "traversing dir:", filename
-		for f in os.listdir(filename):
+		for f in fnmatch.filter(os.listdir(filename), '*.mp3'):
 			do_recurse(os.path.join(filename, f))
 	else:
 		print "checking file:", filename

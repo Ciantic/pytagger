@@ -1,3 +1,15 @@
+*PyID3v2 v0.1.1 (03 Feb 2004)
+	 
+	 03 Feb 2004; Alastair Tse <acnt2@cam.ac.uk>:
+	 Bugfix release.
+	 
+	 - Silently ignore invalid ID3v2 tags. Some encoders insert
+	   their own custom tags like CON1.
+	 - Various fixes to encoding/decoding tags for ID3v2.2.
+	 - Made unrecognised flags error use _debug() methods
+	 - Fix footer flag not found when using ID3v2.2
+	 - Add fnmatch to mp3stats.py (Richard Shaw)
+
 *PyID3v2 v0.1 (14 Jan 2004)
 
 	14 Jan 2004; Alastair Tse <acnt2@cam.ac.uk>:
