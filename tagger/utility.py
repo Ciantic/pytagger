@@ -1,6 +1,4 @@
-#
-# Data Utility Functions 
-#
+""" Data Utility Functions  """
 
 import struct
 from encodings import normalize_encoding
@@ -78,3 +76,41 @@ def is_valid_encoding(encoding):
 		return 1
 	else:
 		return 0
+    
+def seek_to_sync(self, fd):
+    """
+    Reads the file object until it reaches a sync frame of an MP3 file
+    (FIXME - inefficient, and possibly useless)
+    """
+    buf = ''
+    hit = -1
+    read = 0
+    
+    while hit == -1:
+        # keep on reading until we have 3 chars in the buffer
+        while len(buf) < 3:
+            buf += fd.read(1)
+            read += 1
+        # do pattern matching for a 11 bit on pattern in the first 2 bytes
+        # (note: that it may extend to the third byte)
+        b0,b1,b2 = struct.unpack('!3B',buf)
+        if (b0 & 0xff) and (b1 & 0xe0):
+            hit = 0
+        elif (b0 & 0x7f) and (b1 & 0xf0):
+            hit = 1
+        elif (b0 & 0x3f) and (b1 & 0xf8):
+            hit = 2
+        elif (b0 & 0x1f) and (b1 & 0xfc):
+            hit = 3
+        elif (b0 & 0x0f) and (b1 & 0xfe):
+            hit = 4
+        elif (b0 & 0x07) and (b1 & 0xff):
+            hit = 5
+        elif (b0 & 0x03) and (b1 & 0xff) and (b2 & 0x80):
+            hit = 6
+        elif (b0 & 0x01) and (b1 & 0xff) and (b2 & 0xc0):
+            hit = 7
+        else:
+            buf = buf[1:]
+            
+    return read + 0.1 * hit - 3

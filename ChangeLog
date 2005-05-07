@@ -1,3 +1,30 @@
+*pytagger v0.4 (07 May 2005)
+    07 May 2005; Alastair Tse <alastair@tse.id.au>
+    - Updated example mp3check script using the new API
+
+    10 April 2005; Alastair Tse <alastair@tse.id.au>
+    - Added copyright (BSD) and changed contact email
+    - Revamped ID3v1 to allow reading and writing. 
+    - Removed requirement for mode specified for ID3v1 and ID3v2. 
+      It is now auto detect. If you open the file, it will
+      open it as read/write, but will not commit any changes unless
+      you run the *commit() functions.
+    - API!! Does not throw exception if unable to find ID3 tag. You should
+      now check the output tag_exists() to determine whether it was able
+      to find tags. This is done so that you can create new ID3 tags without
+      requiring the old one to be there. Still throws exceptions if tags
+      found is invalid or IOErrors occur.
+
+*pytagger v0.3 (20 Dec 2004)
+    
+    21 Dec 2004; Alastair Tse <acnt2@cam.ac.uk>:
+    - Fix problem with incrementing tag version because of python floating
+      point rounding. Thanks to Ates Dagli and Niall Smart.
+    - Improved documentation by adding some more instance variables.
+    - Fixed mimetype/imagetype APIC extraction for ID3v2.2, 
+      thanks to Niall Smart.
+      
+
 *pytagger v0.2 (26 Apr 2004)
 
 	02 May 2004; Alastair Tse <acnt2@cam.ac.uk>:

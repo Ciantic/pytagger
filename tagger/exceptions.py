@@ -1,9 +1,8 @@
-"""
-Copyright (c) 2004. Alastair Tse <acnt2@cam.ac.uk>
-http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/
+""" Custom Exceptions """
 
-Custom Exceptions
-"""
+__author__ = "Alastair Tse <alastair@tse.id.au>"
+__license__ = "BSD"
+__copyright__ = "Copyright (c) 2004, Alastair Tse" 
 
 __revision__ = "$Id: exceptions.py,v 1.2 2004/05/04 12:18:21 acnt2 Exp $"
 

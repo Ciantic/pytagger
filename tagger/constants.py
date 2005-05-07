@@ -1,10 +1,10 @@
-"""
-Copyright (c) 2004. Alastair Tse <acnt2@cam.ac.uk>
-http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/
+""" Tagger ID3 Constants """
 
-Tagger ID3 Constants
-"""
-__revision__ = "$Id: constants.py,v 1.2 2004/05/04 12:18:21 acnt2 Exp $"
+__author__ = "Alastair Tse <alastair@tse.id.au>"
+__license__ = "BSD"
+__copyright__ = "Copyright (c) 2004, Alastair Tse" 
+
+__revision__ = "$Id: constants.py,v 1.3 2004/12/21 12:02:06 acnt2 Exp $"
 
 ID3_FILE_READ = 0
 ID3_FILE_MODIFY = 1
@@ -12,6 +12,7 @@ ID3_FILE_NEW = 2
 
 ID3V2_FILE_HEADER_LENGTH = 10
 ID3V2_FILE_EXTHEADER_LENGTH = 5
+ID3V2_FILE_FOOTER_LENGTH = 10
 ID3V2_FILE_DEFAULT_PADDING = 512
 
 ID3V2_DEFAULT_VERSION = 2.4
@@ -93,6 +94,18 @@ ID3V2_2_FRAME_SUPPORTED_IDS = {
 	'WXX':('wxxx','User defined URL link frame')
 	}
 
+
+ID3V2_2_FRAME_IMAGE_FORMAT_TO_MIME_TYPE = {
+    'JPG':'image/jpeg',
+    'PNG':'image/png',
+    'GIF':'image/gif'
+}
+
+ID3V2_2_FRAME_MIME_TYPE_TO_IMAGE_FORMAT = {
+    'image/jpeg':'JPG',
+    'image/png':'PNG',
+    'image/gif':'GIF'
+}
 
 # ID3v2 2.3 and above support
 

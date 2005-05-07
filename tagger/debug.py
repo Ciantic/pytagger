@@ -1,11 +1,10 @@
 """
-Copyright (c) 2004. Alastair Tse <acnt2@cam.ac.uk>
-http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/
-
 Debugging Functions
 """
-
-__revision__ = "$Id: debug.py,v 1.2 2004/05/04 12:18:21 acnt2 Exp $"
+__author__ = "Alastair Tse <alastair@tse.id.au>"
+__license__ = "BSD"
+__copyright__ = "Copyright (c) 2004, Alastair Tse" 
+__revision__ = "$Id: debug.py,v 1.3 2004/12/21 12:02:06 acnt2 Exp $"
 
 ID3V2_DEBUG = 0
 

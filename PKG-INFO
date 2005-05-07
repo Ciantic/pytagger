@@ -1,10 +1,10 @@
 Metadata-Version: 1.0
 Name: pytagger
-Version: 0.2
+Version: 0.4
 Summary: Python ID3 Tag Reader and Writer Module
-Home-page: http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/
+Home-page: http://www.liquidx.net/pytagger/
 Author: Alastair Tse
-Author-email: acnt2@cam.ac.uk
+Author-email: alastair@tse.id.au
 License: BSD
 Description: An ID3v1 and ID3v2 tag reader and writer module in pure Python. Supports all standards including ID3v1, ID3v1.1, ID3v2.2, ID3v2.3 and ID3v2.4
 Platform: UNKNOWN

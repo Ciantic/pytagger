@@ -6,10 +6,10 @@ from distutils.core import setup, Extension
 
 setup(
     name = "pytagger",
-    version = "0.2",
+    version = "0.4",
     author = "Alastair Tse",
-    author_email = "acnt2@cam.ac.uk",
-    url = "http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/",
+    author_email = "alastair@tse.id.au",
+    url = "http://www.liquidx.net/pytagger/",
 	description = "Python ID3 Tag Reader and Writer Module",
 	long_description = "An ID3v1 and ID3v2 tag reader and writer module in pure Python. Supports all standards including ID3v1, ID3v1.1, ID3v2.2, ID3v2.3 and ID3v2.4",
 	license = "BSD",

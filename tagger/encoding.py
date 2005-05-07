@@ -1,10 +1,8 @@
-"""
-Copyright (c) 2004. Alastair Tse <acnt2@cam.ac.uk>
-http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/
+""" Encoding maps """
 
-Encoding maps
-"""
-
+__author__ = "Alastair Tse <alastair@tse.id.au>"
+__license__ = "BSD"
+__copyright__ = "Copyright (c) 2004, Alastair Tse" 
 __revision__ = "$Id: encoding.py,v 1.3 2004/05/09 23:25:40 acnt2 Exp $"
 
 ID3V2_FIELD_ENC_LATIN_1 = 0
