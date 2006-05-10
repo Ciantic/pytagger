@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>tagger.id3v2frame.ID3v2BaseFrame</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="tagger-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="tagger-module.html">Package&nbsp;tagger</a> ::
+        <a href="tagger.id3v2frame-module.html">Module&nbsp;id3v2frame</a> ::
+        Class&nbsp;ID3v2BaseFrame
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[show&nbsp;private&nbsp;|&nbsp;<a href="../public/tagger.id3v2frame.ID3v2BaseFrame-class.html">hide&nbsp;private</a>]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="tagger.id3v2frame.ID3v2BaseFrame-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class ID3v2BaseFrame</h2>
+
+<dl><dt><b>Known Subclasses:</b></dt>
+<dd>
+    <a href="tagger.id3v2frame.ID3v2_2_Frame-class.html"><code>ID3v2_2_Frame</code></a>,
+    <a href="tagger.id3v2frame.ID3v2_3_Frame-class.html"><code>ID3v2_3_Frame</code></a></dd></dl>
+
+<hr/>
+
+<p>Base ID3v2 Frame for 2.2, 2.3 and 2.4</p>
+<p>Abstract class that defines basic functions that are common for 2.2, 
+2.3 and 2.4.</p>
+<p>o_* functions means output_*, they output a bytestring encoding the 
+given data</p>
+x_* functions means extract_*, they extract data into accessible 
+structures when given a suitable length bytestream
+<hr/>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>frame</span>,
+          <span class=summary-sig-arg>fid</span>)</span></code>
+<br />
+creates an ID3v2BaseFrame structure.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#new_frame_header" class="summary-sig-name"><code>new_frame_header</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+creates a new frame header</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_apic"></a><span class="summary-sig"><span class="summary-sig-name">o_apic</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_bin"></a><span class="summary-sig"><span class="summary-sig-name">o_bin</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_comm"></a><span class="summary-sig"><span class="summary-sig-name">o_comm</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_geob"></a><span class="summary-sig"><span class="summary-sig-name">o_geob</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_pcnt"></a><span class="summary-sig"><span class="summary-sig-name">o_pcnt</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#o_string" class="summary-sig-name"><code>o_string</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>s</span>,
+          <span class=summary-sig-arg>toenc</span>,
+          <span class=summary-sig-arg>fromenc</span>)</span></code>
+<br />
+Converts a String or Unicode String to a byte string of specified 
+encoding.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#o_text" class="summary-sig-name"><code>o_text</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Output text bytestring</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_url"></a><span class="summary-sig"><span class="summary-sig-name">o_url</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="o_wxxx"></a><span class="summary-sig"><span class="summary-sig-name">o_wxxx</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#output" class="summary-sig-name"><code>output</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Create a bytestring representing the frame contents and the field</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="output_field"></a><span class="summary-sig"><span class="summary-sig-name">output_field</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="parse_field"></a><span class="summary-sig"><span class="summary-sig-name">parse_field</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#parse_frame_header" class="summary-sig-name"><code>parse_frame_header</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>frame</span>)</span></code>
+<br />
+Parse the frame header from a bytestring</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#x_apic" class="summary-sig-name"><code>x_apic</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Extract APIC</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="x_bin"></a><span class="summary-sig"><span class="summary-sig-name">x_bin</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#x_comm" class="summary-sig-name"><code>x_comm</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+extract comment field</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#x_geob" class="summary-sig-name"><code>x_geob</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Extract GEOB</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#x_pcnt" class="summary-sig-name"><code>x_pcnt</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Extract Play Count</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#x_text" class="summary-sig-name"><code>x_text</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Extract Text Fields</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="x_url"></a><span class="summary-sig"><span class="summary-sig-name">x_url</span>(<span class=summary-sig-arg>self</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#x_wxxx" class="summary-sig-name"><code>x_wxxx</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Extract URL</td></tr>
+</table><br />
+
+
+<!-- =========== START OF INSTANCE VARIABLE SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Instance Variable Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#counter"><code>counter</code></a></b>: for playcount (PCNT)</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#desc"><code>desc</code></a></b>: for geob and URL</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#encoding"><code>encoding</code></a></b>: optional - for text fields we have the encoding name</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#fid"><code>fid</code></a></b>: frame id code</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#filename"><code>filename</code></a></b>: filename for GEOB</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#flags"><code>flags</code></a></b>: dictionary of flags for this frame</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#language"><code>language</code></a></b>: set if this frame is a comment (2 character code)</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#length"><code>length</code></a></b>: length of the frame in bytes</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#longcomment"><code>longcomment</code></a></b>: set if this frame is a comment (optional)</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#mimetype"><code>mimetype</code></a></b>: mimetype for GEOB, APIC</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#obj"><code>obj</code></a></b>: data for GEOB</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#rawdata"><code>rawdata</code></a></b>: rawdata of the rest of the frame minus the header</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#shortcomment"><code>shortcomment</code></a></b>: set if this frame is a comment</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#strings"><code>strings</code></a></b>: a list of strings for text fields</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#url"><code>url</code></a></b>: for URL</td></tr>
+</table><br />
+
+
+<!-- =========== START OF CLASS VARIABLE SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Class Variable Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1"><code>dict</code></font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#format_flags"><code>format_flags</code></a></b>: format flags required</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1"><code>int</code></font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#header_length"><code>header_length</code></a></b>: header portion length</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1"><code>dict</code></font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#status_flags"><code>status_flags</code></a></b>: status flags required</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1"><code>dict</code></font></td>
+<td><b><a href="tagger.id3v2frame.ID3v2BaseFrame-class.html#supported"><code>supported</code></a></b>: supported frame ids</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>frame</span>=<span class=sig-default>None</span>,
+          <span class=sig-arg>fid</span>=<span class=sig-default>None</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  creates an ID3v2BaseFrame structure. If you specify frame, then it 
+  will go into parse mode. If you specify the fid, then it will create a 
+  new frame.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>frame</b></code> -
+         frame bytestring
+      <dd><code><b>fid</b></code> -
+         frame id for creating a new frame
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="new_frame_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">new_frame_header</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  creates a new frame header
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="o_string"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">o_string</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>s</span>,
+          <span class=sig-arg>toenc</span>,
+          <span class=sig-arg>fromenc</span>=<span class=sig-default>'latin_1'</span>)</span>
+  </h3>
+  Converts a String or Unicode String to a byte string of specified 
+  encoding.
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>toenc</b></code> -
+         Encoding which we wish to convert to. This can be either 
+        ID3V2_FIELD_ENC_* or the actual python encoding type
+      <dd><code><b>fromenc</b></code> -
+         converting from encoding specified
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="o_text"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">o_text</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Output text bytestring
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="output"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">output</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Create a bytestring representing the frame contents and the 
+  field
+  <dl><dt></dt><dd>
+<p><b>To Do:</b>
+<ul>
+  <li>no syncsafing
+</li>
+  <li>no status format flags used
+
+  </li>
+</ul></p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse_frame_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse_frame_header</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>frame</span>)</span>
+  </h3>
+  Parse the frame header from a bytestring
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>frame</b></code> -
+         bytestring of the frame
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=string)</i>
+      </dd>
+    </dl>
+<p><b>To Do:</b> apple's id3 tags doesn't seem to follow the unsync safe format
+</p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="x_apic"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">x_apic</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  <p>Extract APIC</p>
+  set: encoding, mimetype, desc, pict, picttype
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="x_comm"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">x_comm</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  <p>extract comment field</p>
+  sets: encoding, lang, shortcomment, longcomment
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="x_geob"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">x_geob</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  <p>Extract GEOB</p>
+  set: encoding, mimetype, filename, desc, obj
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="x_pcnt"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">x_pcnt</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  <p>Extract Play Count</p>
+  sets: counter
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="x_text"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">x_text</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Extract Text Fields
+  <dl><dt></dt><dd>
+<p><b>To Do:</b> <p>handle multiple strings seperated by  </p>
+sets: encoding, strings
+</p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="x_wxxx"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">x_wxxx</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  <p>Extract URL</p>
+  set: encoding, desc, url
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF INSTANCE VARIABLE DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Instance Variable Details</th></tr>
+</table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="counter"></a>
+<h3>counter</h3>
+for playcount (PCNT)
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="desc"></a>
+<h3>desc</h3>
+for geob and URL
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="encoding"></a>
+<h3>encoding</h3>
+optional - for text fields we have the encoding name
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="fid"></a>
+<h3>fid</h3>
+frame id code
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="filename"></a>
+<h3>filename</h3>
+filename for GEOB
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="flags"></a>
+<h3>flags</h3>
+dictionary of flags for this frame
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="language"></a>
+<h3>language</h3>
+set if this frame is a comment (2 character code)
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="length"></a>
+<h3>length</h3>
+length of the frame in bytes
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="longcomment"></a>
+<h3>longcomment</h3>
+set if this frame is a comment (optional)
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="mimetype"></a>
+<h3>mimetype</h3>
+mimetype for GEOB, APIC
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="obj"></a>
+<h3>obj</h3>
+data for GEOB
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="rawdata"></a>
+<h3>rawdata</h3>
+rawdata of the rest of the frame minus the header
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="shortcomment"></a>
+<h3>shortcomment</h3>
+set if this frame is a comment
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="strings"></a>
+<h3>strings</h3>
+a list of strings for text fields
+</td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="url"></a>
+<h3>url</h3>
+for URL
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF CLASS VARIABLE DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Class Variable Details</th></tr>
+</table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="format_flags"></a>
+<h3>format_flags</h3>
+format flags required
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          <code>dict</code>
+
+      </dd>
+<span title="{}">      <dt><b>Value:</b></dt>
+      <dd><table><tr><td>
+<pre class="variable">
+{}                                                                     </pre>
+        </td></tr></table></dd>
+</span>    </dl>
+  </dd>
+</dl></td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="header_length"></a>
+<h3>header_length</h3>
+header portion length
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          <code>int</code>
+
+      </dd>
+<span title="0">      <dt><b>Value:</b></dt>
+      <dd><table><tr><td>
+<pre class="variable">
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>
+        </td></tr></table></dd>
+</span>    </dl>
+  </dd>
+</dl></td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="status_flags"></a>
+<h3>status_flags</h3>
+status flags required
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          <code>dict</code>
+
+      </dd>
+<span title="{}">      <dt><b>Value:</b></dt>
+      <dd><table><tr><td>
+<pre class="variable">
+{}                                                                     </pre>
+        </td></tr></table></dd>
+</span>    </dl>
+  </dd>
+</dl></td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="supported"></a>
+<h3>supported</h3>
+supported frame ids
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          <code>dict</code>
+
+      </dd>
+<span title="{}">      <dt><b>Value:</b></dt>
+      <dd><table><tr><td>
+<pre class="variable">
+{}                                                                     </pre>
+        </td></tr></table></dd>
+</span>    </dl>
+  </dd>
+</dl></td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="tagger-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.0 on Sun Apr 10 14:44:00 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

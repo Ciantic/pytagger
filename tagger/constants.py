@@ -22,6 +22,10 @@ ID3V2_FIELD_ENC_UTF16 = 1
 ID3V2_FIELD_ENC_UTF16BE = 2
 ID3V2_FIELD_ENC_UTF8 = 3
 
+
+
+
+
 # ID3v2 2.2 Variables
 
 ID3V2_2_FRAME_HEADER_LENGTH = 6
@@ -153,7 +157,6 @@ ID3V2_3_FRAME_FORMAT_FLAGS = [('groupinfo', 6),
 							  ('sync', 1),
 							  ('datalength', 0)]
 
-
 ID3V2_3_ABOVE_SUPPORTED_IDS = {
 	'AENC':('bin','Audio Encryption'), # FIXME
 	'APIC':('apic','Attached Picture'),
@@ -246,4 +249,29 @@ ID3V2_3_ABOVE_SUPPORTED_IDS = {
 	'TRDA':('text','Recording date'),
 	'TSIZ':('text','Size'),
 	'TYER':('text','Year')		
-	}
+}
+
+ID3V2_3_APIC_PICT_TYPES = {
+    0x00: 'Other',
+    0x01: '32x32 PNG Icon',
+    0x02: 'Other Icon',
+    0x03: 'Cover (Front)',
+    0x04: 'Cover (Back)',
+    0x05: 'Leaflet Page',
+    0x06: 'Media',
+    0x07: 'Lead Artist/Lead Performer/Soloist',
+    0x08: 'Artist/Performer',
+    0x09: 'Conductor',
+    0x0a: 'Band/Orchestra',
+    0x0b: 'Composer',
+    0x0c: 'Lyricist/text writer',
+    0x0d: 'Recording Location',
+    0x0e: 'During Recording',
+    0x0f: 'During Performance',
+    0x10: 'Movie/Video Screen Capture',
+    0x11: 'A bright coloured fish',
+    0x12: 'Illustration',
+    0x13: 'Band/artist logotype',
+    0x14: 'Publisher/Studio logotype'
+}    
+

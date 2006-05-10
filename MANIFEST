@@ -1,0 +1,14 @@
+README
+setup.py
+ChangeLog
+COPYING
+mp3check.py
+tagger/id3v1.py
+tagger/id3v2.py
+tagger/id3v2frame.py
+tagger/utility.py
+tagger/constants.py
+tagger/encoding.py
+tagger/exceptions.py
+tagger/debug.py
+tagger/__init__.py

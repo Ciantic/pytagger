@@ -209,7 +209,6 @@ class ID3v2:
             raise ID3HeaderInvalidException("ID3v2 header not found")
 
         self.tag["size"] = unsyncsafe(rawsize)
-        print self.tag['size']
         # NOTE: size  = excluding header + footer
         version = 2 + (ver / 0x100) * 0.1
         if version not in self.supported:

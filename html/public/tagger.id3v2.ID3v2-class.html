@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>tagger.id3v2.ID3v2</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="tagger-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        <a href="tagger-module.html">Package&nbsp;tagger</a> ::
+        <a href="tagger.id3v2-module.html">Module&nbsp;id3v2</a> ::
+        Class&nbsp;ID3v2
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[<a href="../private/tagger.id3v2.ID3v2-class.html">show&nbsp;private</a>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="tagger.id3v2.ID3v2-class.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF CLASS DESCRIPTION =========== -->
+<h2 class="class">Class ID3v2</h2>
+
+<hr/>
+
+ID3v2 Tag Parser/Writer for MP3 files
+<hr/>
+
+<p><b>Note:</b> <p>tag has the following options</p>
+size = size of the whole header, excluding header and footer ext = has 
+extension header (2.3, 2.4 only) exp = is experimental (2.4, 2.3 only) 
+footer = has footer (2.3, 2.4 only) compression = has compression enabled 
+(2.2 only) unsync = uses unsynchronise method of encoding data
+</p>
+
+<p><b>To Do:</b>
+<ul>
+  <li>parse/write footers
+</li>
+  <li>parse/write appended tags
+</li>
+  <li>parse/write ext header
+
+  </li>
+</ul></p>
+
+
+<!-- =========== START OF METHOD SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Method Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#__init__" class="summary-sig-name"><code>__init__</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>filename</span>,
+          <span class=summary-sig-arg>mode</span>,
+          <span class=summary-sig-arg>version</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="commit"></a><span class="summary-sig"><span class="summary-sig-name">commit</span>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>pretend</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#construct_ext_header" class="summary-sig-name"><code>construct_ext_header</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Construct an Extension Header (FIXME)</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#construct_footer" class="summary-sig-name"><code>construct_footer</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Construct a Footer (FIXME)</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#construct_header" class="summary-sig-name"><code>construct_header</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>size</span>)</span></code>
+<br />
+Construct Header Bytestring to for tag</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#dump_header" class="summary-sig-name"><code>dump_header</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Debugging purposes, dump the whole header of the file.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="get_next_frame"></a><span class="summary-sig"><span class="summary-sig-name">get_next_frame</span>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>search_length</span>)</span></code>
+</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#new_frame" class="summary-sig-name"><code>new_frame</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>fid</span>,
+          <span class=summary-sig-arg>frame</span>)</span></code>
+<br />
+Return a new frame of the correct type for this tag</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#new_header" class="summary-sig-name"><code>new_header</code></a>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>version</span>)</span></code>
+<br />
+Create a new default ID3v2 tag data structure</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#parse_ext_header" class="summary-sig-name"><code>parse_ext_header</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Parse Extension Header</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#parse_footer" class="summary-sig-name"><code>parse_footer</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Parse Footer</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#parse_frames" class="summary-sig-name"><code>parse_frames</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Recursively Parse Frames</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="tagger.id3v2.ID3v2-class.html#parse_header" class="summary-sig-name"><code>parse_header</code></a>(<span class=summary-sig-arg>self</span>)</span></code>
+<br />
+Parse Header of the file</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><a name="set_version"></a><span class="summary-sig"><span class="summary-sig-name">set_version</span>(<span class=summary-sig-arg>self</span>,
+          <span class=summary-sig-arg>version</span>)</span></code>
+</td></tr>
+</table><br />
+
+
+<!-- =========== START OF INSTANCE VARIABLE SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Instance Variable Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">dictionary of ID3v2*Frame(s)</font></td>
+<td><b><a href="tagger.id3v2.ID3v2-class.html#frames"><code>frames</code></a></b>: list of frames that is in the tag</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">dictionary</font></td>
+<td><b><a href="tagger.id3v2.ID3v2-class.html#tag"><code>tag</code></a></b>: dictionary of parameters that the tag has</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">float (2.2, 2.3, 2.4)</font></td>
+<td><b><a href="tagger.id3v2.ID3v2-class.html#version"><code>version</code></a></b>: version this tag supports</td></tr>
+</table><br />
+
+
+<!-- =========== START OF CLASS VARIABLE SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Class Variable Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1"><code>list</code></font></td>
+<td><b><a href="tagger.id3v2.ID3v2-class.html#supported"><code>supported</code></a></b>: list of version that this parser supports</td></tr>
+</table><br />
+
+
+<!-- =========== START OF METHOD DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Method Details</th></tr>
+</table>
+
+<a name="__init__"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">__init__</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>filename</span>,
+          <span class=sig-arg>mode</span>=<span class=sig-default>0</span>,
+          <span class=sig-arg>version</span>=<span class=sig-default>2.3999999999999999</span>)</span>
+    <br /><i>(Constructor)</i>
+  </h3>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>filename</b></code> -
+         the file to open or write to.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=string)</i>
+      <dd><code><b>mode</b></code> -
+         either ID3_FILE_NEW, ID3_FILE_READ, ID3_FILE_MODIFY. The 
+        default is ID3_FILE_READ.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=int)</i>
+      <dd><code><b>version</b></code> -
+         if ID3_FILE_NEW, then what version to create the header in. 
+        Default is 2.4
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=float)</i>
+      </dd>
+    </dl>
+    <dl><dt><b>Raises:</b></dt>
+      <dd><code><b>ID3Exception</b></code> -
+        if file does not have an ID3v2 but is specified to be in read 
+        or modify mode.
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="construct_ext_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">construct_ext_header</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Construct an Extension Header (FIXME)
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="construct_footer"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">construct_footer</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Construct a Footer (FIXME)
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="construct_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">construct_header</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>size</span>)</span>
+  </h3>
+  Construct Header Bytestring to for tag
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>size</b></code> -
+         size to encode into the bytestring. Note the size is the whole 
+        size of the tag minus the header and footer
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=int)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="dump_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">dump_header</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Debugging purposes, dump the whole header of the file.
+  <dl><dt></dt><dd>
+<p><b>To Do:</b> dump footer and extension header as well
+</p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="new_frame"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">new_frame</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>fid</span>=<span class=sig-default>None</span>,
+          <span class=sig-arg>frame</span>=<span class=sig-default>None</span>)</span>
+  </h3>
+  Return a new frame of the correct type for this tag
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>fid</b></code> -
+         frame id
+      <dd><code><b>frame</b></code> -
+         bytes in the frame
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="new_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">new_header</span>(<span class=sig-arg>self</span>,
+          <span class=sig-arg>version</span>=<span class=sig-default>2.3999999999999999</span>)</span>
+  </h3>
+  Create a new default ID3v2 tag data structure
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>version</b></code> -
+         version of the tag to use. default is 2.4.
+        <br /><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        (type=float)</i>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse_ext_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse_ext_header</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Parse Extension Header
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse_footer"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse_footer</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Parse Footer
+  <dl><dt></dt><dd>
+<p><b>To Do:</b> implement me
+</p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse_frames"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse_frames</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Recursively Parse Frames
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+
+<a name="parse_header"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">parse_header</span>(<span class=sig-arg>self</span>)</span>
+  </h3>
+  Parse Header of the file
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF INSTANCE VARIABLE DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Instance Variable Details</th></tr>
+</table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="frames"></a>
+<h3>frames</h3>
+list of frames that is in the tag
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          dictionary of ID3v2*Frame(s)
+
+      </dd>
+    </dl>
+  </dd>
+</dl></td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="tag"></a>
+<h3>tag</h3>
+dictionary of parameters that the tag has
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          dictionary
+
+      </dd>
+    </dl>
+  </dd>
+</dl></td></tr></table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="version"></a>
+<h3>version</h3>
+version this tag supports
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          float (2.2, 2.3, 2.4)
+
+      </dd>
+    </dl>
+  </dd>
+</dl></td></tr></table>
+<br />
+
+
+<!-- =========== START OF CLASS VARIABLE DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Class Variable Details</th></tr>
+</table>
+<table width="100%" class="var-details" bgcolor="#e0e0e0"><tr><td>
+<a name="supported"></a>
+<h3>supported</h3>
+list of version that this parser supports
+<dl>
+  <dt></dt>
+  <dd>
+    <dl>
+      <dt><b>Type:</b></dt>
+      <dd>
+          <code>list</code>
+
+      </dd>
+<span title="[2.2000000000000002, 2.2999999999999998, 2.3999999999999999]">      <dt><b>Value:</b></dt>
+      <dd><table><tr><td>
+<pre class="variable">
+[2.2000000000000002, 2.2999999999999998, 2.3999999999999999]           </pre>
+        </td></tr></table></dd>
+</span>    </dl>
+  </dd>
+</dl></td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="tagger-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.0 on Sun Apr 10 14:44:00 2005</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>

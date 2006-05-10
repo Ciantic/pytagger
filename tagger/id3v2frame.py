@@ -347,16 +347,12 @@ class ID3v2BaseFrame:
         
     def o_apic(self):
         enc = encodings[self.encoding]
+        sep = '\x00'
         if is_double_byte(self.encoding):
             sep = '\x00\x00'
-        else:
-            sep = '\x00'
-        
-        return chr(enc) + self.mimetype + '\x00' + \
-               chr(self.picttype) + \
-               self.o_string(self.desc, self.encoding) + \
-               sep + self.pict
-
+        return '%c%s\x00%c%s%s%s' % (enc, self.mimetype, self.picttype, 
+                                     self.o_string(self.desc, self.encoding),
+                                     sep, self.pict)
 
     def x_apic(self):
         """
@@ -383,19 +379,15 @@ class ID3v2BaseFrame:
         picttype = ord(data[len(self.mimetype) + 2])
 
         # get picture description
-
-        if is_double_byte(self.encoding):
-            for i in range(len(self.mimetype) + 2, len(data)-1):
-                if data[i:i+2] == '\x00\x00':
-                    self.desc = data[len(self.mimetype)+2:i]
+        for i in range(len(self.mimetype) + 2, len(data)-1):
+            if data[i] == '\x00':
+                self.desc = data[len(self.mimetype)+2:i]
+                if data[i+1] == '\x00':
                     self.pict = data[i+2:]
-                    break
-        else:
-            for i in range(len(self.mimetype) + 2, len(data)):
-                if data[i] == '\x00':
-                    self.desc = data[len(self.mimetype)+2:i]
+                else:
                     self.pict = data[i+1:]
-                    break           
+                break
+
         debug('Read Field: %s Len: %d PicType: %d Mime: %s Desc: %s PicLen: %d' % 
                (self.fid, self.length, self.picttype, self.mimetype,
                 self.desc, len(self.pict)))
@@ -520,11 +512,9 @@ class ID3v2_2_Frame(ID3v2BaseFrame):
             else:
                 raise ID3FrameException("ID3v2.2 picture format must be three characters")
         
-        return chr(enc) + imgtype + '\x00' + \
-               chr(self.picttype) + \
-               self.o_string(self.desc, self.encoding) + \
-               sep + self.pict
-
+        return '%c%s%c%s%s%s' % (enc, imgtype, self.picttype,
+                                 self.o_string(self.desc, self.encoding),
+                                 sep, self.pict)
 
     def x_apic(self):
         """
@@ -552,11 +542,15 @@ class ID3v2_2_Frame(ID3v2BaseFrame):
         picttype = ord(data[len(imgtype) + 1])
 
         # get picture description
-        for i in range(len(imgtype) + 2, len(data)):
-                if data[i] == '\x00':
-                    self.desc = data[len(imgtype)+2:i]
+        for i in range(len(imgtype) + 2, len(data) - 1):
+            print [data[i:i+3]]
+            if data[i] == '\x00':
+                self.desc = data[len(imgtype)+2:i]
+                if data[i+1] == '\x00':
+                    self.pict = data[i+2:]
+                else:
                     self.pict = data[i+1:]
-                    break
+                break
                     
         debug('Read Field: %s Len: %d PicType: %d Mime: %s Desc: %s PicLen: %d' % 
                (self.fid, self.length, self.picttype, self.mimetype,

@@ -1,7 +1,7 @@
 """ ID3v1/ID3v2 Tag Manipulation """
 
 """
-Copyright (c) 2004, Alastair Tse <alastair@tse.id.au>
+Copyright (c) 2005, Alastair Tse <alastair@tse.id.au>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -32,10 +32,9 @@ SOFTWARE, EVEN  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __author__ = "Alastair Tse <alastair@tse.id.au>"
 __license = "BSD"
-__url__ = "http://www-lce.eng.cam.ac.uk/~acnt2/code/pytagger/"
-__version__ = "0.3"
-__copyright__ = "Copyright (c) 2004, Alastair Tse" 
-__revision__ = "$Id: __init__.py,v 1.2 2004/05/04 12:18:21 acnt2 Exp $"
+__url__ = "http://www.liquidx.net/pytagger/"
+__version__ = "0.4"
+__copyright__ = "Copyright (c) 2005, Alastair Tse" 
 
 from constants import *
 from debug import *
