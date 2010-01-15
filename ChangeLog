@@ -1,4 +1,8 @@
-*pytagger v0.5 (?? ??? ????)
+*pytagger v0.6 (?? ??? ????)
+    - Add size check for when frame is truncated (thanks to Michael P. Cosby)
+    - Disabled LINK tag that is unimplemented (thanks to Michael P. Cosby)
+
+*pytagger v0.5 (10 May 2006)
     01 May 2006: Alastair Tse <alastair@liquidx.net>
     - Fix APIC extraction alignment error for v2.2, v2.3, v2.4
     - Fix APIC insertion error for v2.2

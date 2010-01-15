@@ -5,18 +5,18 @@ from encodings import normalize_encoding
 from tagger.constants import *
 from tagger.encoding import *
 
-id3v2_header_len = {2.2: ID3V2_2_FRAME_HEADER_LENGTH,
-					2.3: ID3V2_3_FRAME_HEADER_LENGTH,
-					2.4: ID3V2_3_FRAME_HEADER_LENGTH}
+ID3V2_HEADER_LEN = {'2.2': ID3V2_2_FRAME_HEADER_LENGTH,
+					'2.3': ID3V2_3_FRAME_HEADER_LENGTH,
+					'2.4': ID3V2_3_FRAME_HEADER_LENGTH}
 
 def id3v2_2_get_size(header):
 	return struct.unpack('!I', '\x00' + header[3:6])[0]
 def id3v2_3_get_size(header): 
 	return struct.unpack('!4sIBB', header)[1]
 
-id3v2_data_len = {2.2: id3v2_2_get_size,
-				  2.3: id3v2_3_get_size,
-				  2.4: id3v2_3_get_size}
+ID3V2_DATA_LEN = {'2.2': id3v2_2_get_size,
+				  '2.3': id3v2_3_get_size,
+				  '2.4': id3v2_3_get_size}
 	
 def syncsafe(num, size):
 	"""	Given a number, sync safe it """

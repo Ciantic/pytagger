@@ -29,6 +29,7 @@ def do_id3(filename, verbose=1):
         
     except ID3Exception, e:
         print_debug(filename, "ID3v2 exception: %s" % str(e))
+        raise
 
     try:
         id3 = ID3v1(filename)

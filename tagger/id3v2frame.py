@@ -469,7 +469,7 @@ class ID3v2BaseFrame:
 class ID3v2_2_Frame(ID3v2BaseFrame):
     supported = ID3V2_2_FRAME_SUPPORTED_IDS
     header_length = ID3V2_2_FRAME_HEADER_LENGTH
-    version = 2.2
+    version = '2.2'
     status_flags = []
     format_flags = []
 
@@ -563,7 +563,7 @@ class ID3v2_3_Frame(ID3v2BaseFrame):
     header_length = ID3V2_3_FRAME_HEADER_LENGTH
     status_flags = ID3V2_3_FRAME_STATUS_FLAGS
     format_flags = ID3V2_3_FRAME_FORMAT_FLAGS
-    version = 2.3
+    version = '2.3'
 
     def parse_frame_header(self, frame):
 
@@ -611,7 +611,7 @@ class ID3v2_4_Frame(ID3v2_3_Frame):
     supported = ID3V2_3_ABOVE_SUPPORTED_IDS
     header_length = ID3V2_3_FRAME_HEADER_LENGTH
     flags = ID3V2_3_FRAME_FLAGS 
-    version = 2.4
+    version = '2.4'
 
 
 ID3v2Frame = ID3v2_4_Frame

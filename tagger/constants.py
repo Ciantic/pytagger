@@ -15,16 +15,12 @@ ID3V2_FILE_EXTHEADER_LENGTH = 5
 ID3V2_FILE_FOOTER_LENGTH = 10
 ID3V2_FILE_DEFAULT_PADDING = 512
 
-ID3V2_DEFAULT_VERSION = 2.4
+ID3V2_DEFAULT_VERSION = '2.4'
 
 ID3V2_FIELD_ENC_ISO8859_1 = 0
 ID3V2_FIELD_ENC_UTF16 = 1
 ID3V2_FIELD_ENC_UTF16BE = 2
 ID3V2_FIELD_ENC_UTF8 = 3
-
-
-
-
 
 # ID3v2 2.2 Variables
 
@@ -168,7 +164,7 @@ ID3V2_3_ABOVE_SUPPORTED_IDS = {
 	'ETCO':('bin','Event timing codes'), # FIXME
 	'GEOB':('geob','General Encapsulated Object'),
 	'GRID':('bin','Group ID Registration'), # FIXME
-	'LINK':('link','Linked Information'), # FIXME
+	'LINK':('bin','Linked Information'), # FIXME
 	'MCDI':('bin','Music CD Identifier'),
 	'MLLT':('bin','Location lookup table'), # FIXME
 	'OWNE':('bin','Ownership frame'), # FIXME
@@ -206,6 +202,7 @@ ID3V2_3_ABOVE_SUPPORTED_IDS = {
 	'TLEN':('text','Length'),
 	'TMCL':('text','Musician credits list'),
 	'TMED':('text','Media type'),
+	'TMOO':('text','Mood type'),
 	'TOAL':('text','Original album/movie/show title'),
 	'TOFN':('text','Original Filename'),
 	'TOPE':('text','Original artist/performer'),
@@ -216,6 +213,7 @@ ID3V2_3_ABOVE_SUPPORTED_IDS = {
 	'TPE3':('text','Conductor'),
 	'TPE4':('text','Interpreted, remixed by'),
 	'TPOS':('text','Part of a set'), # [0-9/]
+	'TPRO':('text','Produced notice'),
 	'TPUB':('text','Publisher'),
 	'TRCK':('text','Track'), # [0-9/]
 	'TRSN':('text','Internet radio station name'),
