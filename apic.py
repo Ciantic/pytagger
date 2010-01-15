@@ -7,7 +7,7 @@ def get_apic(filename):
         return "No ID3 Tag Found"
         
     apicfid = 'APIC'
-    if id3.version == 2.2:
+    if id3.version == '2.2':
         apicfid = 'PIC'
     
     try:
@@ -22,7 +22,7 @@ def set_apic(filename):
     id3 = ID3v2(filename)
     
     apicfid = 'APIC'
-    if id3.version == 2.2:
+    if id3.version == '2.2':
         apicfid = 'PIC'
     
     apic = id3.new_frame(fid = apicfid)
